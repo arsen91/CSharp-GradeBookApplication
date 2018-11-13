@@ -1,3 +1,4 @@
+using System;
 using GradeBook.Enums;
 
 namespace GradeBook.GradeBooks
@@ -8,6 +9,13 @@ namespace GradeBook.GradeBooks
             : base(name)
         {
             Type = GradeBookType.Ranked;
+        }
+
+        override public char GetLetterGrade(double averageGrade) {
+            if (Students.Count < 5) {
+                throw new InvalidOperationException();
+            }
+            return 'F';
         }
     }
 }
